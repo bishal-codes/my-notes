@@ -10,7 +10,7 @@
 
 // 4. declare variables and assign string, boolean, undefined and null data types
 // Ans -
-var name = 'John';
+var name = "John";
 var age = 30;
 var isMarried = true;
 var isMarried = null;
@@ -33,29 +33,43 @@ var lastName;
 
 // 7. Declare four variables with assigned values
 // Ans -
-var firstProject = '30DaysOfJavaScript';
+var firstProject = "30DaysOfJavaScript";
 var year = 2020;
-var twinkle = 'Twinkle';
-var lastName = 'Smith';
+var twinkle = "Twinkle";
+var lastName = "Smith";
 
 // 8. Declare variables to store your first name, last name, marital status, country and age in multiple lines
 // Ans -
-var firstName5 = 'Asabeneh';
-var lastName = 'Yetayeh';
+var firstName5 = "Asabeneh";
+var lastName = "Yetayeh";
 var isMarried = true;
-var countryy = 'Finland';
+var countryy = "Finland";
 var age = 100;
 
 // 9. Declare variables to store your first name, last name, marital status, country and age in a single line
 // Ans -
-var firstName6 = 'Asabeneh',
-    lastName = 'Yetayeh',
-    isMarried = true,
-    countr = 'Finland',
-    age = 100;
+var firstName6 = "Asabeneh",
+  lastName = "Yetayeh",
+  isMarried = true,
+  countr = "Finland",
+  age = 100;
 
 // 10. Declare two variables myAge and yourAge and assign them initial values and log to the browser console.
 // Ans -
 var myAge = "I am " + 100 + " years old";
 var yourAge = "You are " + 100 + " years old";
 console.log(myAge, yourAge);
+
+// You are given C integers, find their arithmetic mean. The arithmetic mean is the sum of all the numbers divided by the count of numbers.
+// Example:
+// Input: [1,2,3,4,5]
+// Output: 3
+
+var C = [1, 2, 3, 4, 5];
+// Next C lines: Num positive or negative integer.
+var sum = 0;
+for (var i = 0; i < C.length; i++) {
+  sum += C[i];
+}
+var mean = sum / C.length;
+console.log(mean);
