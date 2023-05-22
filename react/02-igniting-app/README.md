@@ -265,7 +265,7 @@ the developer to reload the page.
 
 HMR works by replacing modules in the browser without a full reload. This means that the state of your app is preserved. You can edit your components and see the changes without losing the state of your app.
 
-There is sth known as File Watcher Algorithm, written in C++.
+There is sth known as `File Watcher Algorithm`, written in C++.
 
 # parcel–cache
 
@@ -390,5 +390,5 @@ npx parcel build <entry_point>
 
 - [Creating-your-own-create--react--app](https://medium.com/@JedaiSaboteur/creating-a-react-app-from-scratch-f3c693b84658)
 - [Parcel Documentation](https://parceljs.org/getting-started/webapp/)
-- [Parcel on Production](https://parceljs.org/features/production/)
+- [Parcel on Production](https://parceljs.org/features/tarproduction/)
 - [browserslist](https://browserslist.dev/?q=bGFzdCAyIHZlcnNpb25z)
