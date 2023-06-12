@@ -22,4 +22,16 @@ By using BrowserRouter, you enable the routing functionality in your React appli
 
 Note that BrowserRouter requires a server-side configuration to handle URL requests correctly. When using client-side rendering, you typically configure your server to always serve the root HTML file for any requested URL so that React Router can handle the routing on the client side.
 
-Overall, BrowserRouter is a fundamental component in React Router that helps in managing and handling routing within a React application, providing a seamless navigation experience for the users.
+Overall, BrowserRouter is a fundamental component in React Router that `helps in managing and handling routing` within a React application, providing a seamless navigation experience for the users.
+
+```js
+import * as React from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+
+const root = createRoot(document.getElementById("root"));
+
+root.render(
+  <BrowserRouter>{/* The rest of your app goes here */}</BrowserRouter>
+);
+```
