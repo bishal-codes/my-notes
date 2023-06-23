@@ -41,7 +41,7 @@ For example, consider the IP address 192.168.1.10. Here, 192.168.1 represents th
 
 ## Subnetting:
 
-Subnetting is the process of dividing a network into smaller subnetworks or subnets.
+`Subnetting` is the process of dividing a network into smaller subnetworks or subnets.
 
 - It allows efficient utilization of IP addresses and enables better network management and security.
 - Subnetting involves borrowing bits from the host portion of an IP address to create subnets
