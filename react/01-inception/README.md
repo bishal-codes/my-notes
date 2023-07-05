@@ -84,6 +84,39 @@ function is used to overwrite the contents of root HTML element with those eleme
   </head>
   <body>
     <div id="root"></div>
+
+    <script
+      src="https://unpkg.com/react/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script>
+      // nested element
+      // parent element
+      const parent = React.createElement(
+        "div",
+        { id: "parent" },
+        React.createElement("div", { id: "child" }, [
+          React.createElement("h1", {}, "i am an h1 tag"),
+          React.createElement("h2", {}, "i am an h2 tag"),
+        ])
+      );
+
+      // creating element using react
+      const element = React.createElement("h1", null, "Hello World");
+
+      // create an root element using react
+      const rootElement = document.getElementById("root");
+
+      // tell the react dom the root element is root
+      const root = ReactDOM.createRoot(rootElement);
+
+      // render the element to the root
+      root.render(parent);
+    </script>
   </body>
 </html>
 ```

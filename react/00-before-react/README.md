@@ -1,5 +1,51 @@
 ### Things required before starting react:
 
+- what is react? a library or framework? - can work independently inside the small portion of app. framework comes with all loads of things but react is bearbone minimal javascript library - just javascript code
+- what is developer tool?
+- installation of vscode
+- what is emmet?
+- first hello world program using html
+- first hello world program using script - DOM manipulation
+
+  - createElement()
+  - innerHTML
+  - getElementById()
+  - appendChild()
+  - how does browser understand all these things (superpowers) - browser has JS Engine in
+
+- first hello program using react
+
+  - CDN Links: what is cdn Links?
+    - injected react cdn links or importing react into project using cdn links
+    - what's inside react/reactDOM development and production cdn links - plain javascript code written by FB developers
+    - at end of day, react is just javascript files
+    - what is crossorigin in react - used to handle the CORS request
+    - what happened when react is injected into project? - got superpowers of react such as functions, methods and more
+    - why there are two cdn links for react? - react and reactDOM - react doesn't work only for browsers, but for mobile phones(react-native), react-3d and more places where react has been used, so there are different methods, functions used inside these various places.
+    - what is react.development.js? - core file of react or core react algorithm written inside it.
+    - what is react-dom.development.js? - library for dom operations or modification
+    - using the superpowers from react and reactDOM, can build large-scale applications.
+    - until here was the very fundamental concept before deep dive into react
+  - first hello world program
+    - imported react and react-dom cdn links inside body (at the end)
+    - added a script tag
+    - const heading = React.createElement() - to create element
+      - three arguments - (type, props, ...children) - ("h1", {}, "Hello World!) - what is this object {} - place where you give attributes to your type or props
+      - what is heading? or what do you get when you console.log(heading)? - object in console (a react element is normal javascript object)
+    - const root = ReactDOM.createRoot(document.getElementById("root)) - creating root and rendering sth is job of reactDOM,
+    - root.render(heading) - render function is to take this heading object and convert into h1 tag that browser understands and put that inside root element
+    - everything is render inside root node
+
+- creating nested elements using react
+
+  - giving 2 elements as siblings, have to create an array of children inside createElement()
+
+- code looks ugly so jsx comes into react to make developers life easy to create tags
+- from the above, which is core basics of react and that is how react creates an html element
+
+- order of files matters or should be in sequence - the script where code file where react is used should be after the core react script.
+- Akshay Saini taught me to be always curious or sth to boggle there in your head
+
 ### Back-to-Top
 
 ## TOOLS
