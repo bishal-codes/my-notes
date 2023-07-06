@@ -1,3 +1,124 @@
+Today Learning about how we can ignite our app and make app scalable and production ready, and what actually inside npx-create-react-app:
+and when going to system design interview:
+
+- what makes your react app faster?
+- what makes your react app performance?
+- what makes your developer performance better?
+
+- pushing the code into remote repo
+  - whatever can be regenerated, don't push into git
+- scaling and optimizing app before production ready
+
+  - many online shows npx-create-react-app, but go dive deep what is there behind this npx-create-react-app!
+
+    - can react itself build fast production ready app?: no
+    - is react making the app faster?: no, there are a lot of other packages, libraries, code to make production ready
+
+  - npm
+
+    - everything, but not a node package manager, which manages packages
+    - standard repository for all the packages
+    - configuration of npm in project: npm init in terminal
+
+  - package.json:
+
+    - configuration for our npm, json structured file
+    - keeps track of approx. or what version of packages are installed into project
+    - dependencies
+      - are managed by npm inside package.json
+      - are required during both development and production mode
+    - should i put package.json inside git
+      - yes, maintains the list of what all dependencies are needed or installed for the project
+
+  - package-lock.json
+
+    - keeps track of exact version installed into project, while package.json can have caret or tilde update
+    - integrity: basically a hash for (it works on my local but it breaks on production) avoiding this break and also to verify whatever is there in local machine is the same thing being deployed in production
+    - should i put package-lock.json inside git
+      - yes, maintains the list of what all dependencies are needed or installed for the project
+
+  - node_modules
+
+    - contains all the downloaded modules or packages from npm (collection of dependencies)
+    - heaviest object in the universe
+    - database contains actual data of that dependencies or packages installed
+    - why there are a lot of other packages than parcel or installed package?
+
+      - because our project need dependency parcel and parcel as project has its own dependency, and those dependency can have their own dependency, known as transitive dependencies
+
+    - should i put node_modules inside git
+
+      - no, if there is package.json and package-lock.json in project repo, node_modules can be regenerated or recreated
+
+    - npm version: major.minor.patch
+      - caret(^): will automatically upgrade the package with the minor updates along with patch updates.
+      - tilde(~): used to match recent patch version
+
+  - bundler
+
+    - most important package in project
+    - used for minification, caching, compression and bundling the files in project
+    - weppack, parcel, vite
+
+  - parcel: is a beast
+
+    - chunking, minification during development phase
+    - for ignition our app & setup of parcel: npm install -D parcel
+    - devDependencies (-D): dependencies are required during development mode
+    - how is parcel is managing all those node_modules by itself?
+    - How npm knows parcel has those its dependencies? what are those dependencies?
+    - What parcel does?
+      - dev build
+      - build local server
+      - auto refreshing page: HMR(Hot Module Reloading)
+        - uses File Watching Algorithms (written in c++)
+      - caching: faster development builds
+        - where its caching things: .parcel-cache
+          - .parcel-cache
+            - cache folder contains cached assets like js/css bundles etc..
+            - tmp - contains the temporary files
+      - image optimization
+      - minify, bundle and compress files †o production
+      - consistent hashing algorithm to cache things up
+      - diagnostic
+      - error handling
+      - https
+      - zero config - no need of many configurations. No configuration is required in order to use parcel in the application.
+      - tree shaking: remove unused codes
+      - code splitting
+      - differential bundling: when app is hosted, app can be open in IE and older versions of IE, firefox and parcel takes care of all these by giving differential bundling to app and hence app runs smoothly in older browsers as well
+      - creates different dev and production bundles
+        - npx parcel build index.html
+        - generates dist
+    - A lot people thinks react apps are fast because react is fast 😂 but when we build large scale production ready applications, we need a lot of other things that bundlers doing to optimize
+
+  - In our whole projects how many package.json and package-lock.json do we have?
+    - every dependencies will have package.json and has transitive dependencies
+
+- Actual Ignition of app using parcel
+
+  - npx parcel index.html
+    - npx: execute npm package
+    - generates development build of project and store in dist folder and on update of any files, parcel was using cache and dist on HMR
+  - npm i react react-dom
+    - after installation, import react to code
+  - npm parcel build index.html
+    - parcel modifies by minifying, bundling the files into 3 and store in dist
+
+- CDN links is not preferred way to bring React and ReactDOM into project
+
+  - fetching from cdn is costly operations, will make network calls to api
+  - easy thing is we already have react in node modules so easy to install
+  - if new version of React comes, we have to keep updating cdn url links.
+
+- browser scripts cannot have imports or exports
+
+  - injecting script inside html takes this as a browser script and considering as normal javascript by not understanding imports or exports
+  - we tell browser that the script is module by passing attribute type="module"
+
+- making app compatible for older browsers
+  - use browserlist
+
 ## some git terms
 
 `git init`: Initializes an empty Git repository in the current directory.
