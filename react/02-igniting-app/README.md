@@ -4,6 +4,9 @@ and when going to system design interview:
 - what makes your react app faster?
 - what makes your react app performance?
 - what makes your developer performance better?
+  – can i have multiple root.render() in app
+  – can i have multiple reactDOM.createRoot() in app
+  – can i have multiple id root in app
 
 - pushing the code into remote repo
   - whatever can be regenerated, don't push into git

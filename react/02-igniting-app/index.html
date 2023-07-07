@@ -2,20 +2,43 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>React App</title>
+    <title>Bishal Bazaar</title>
   </head>
+
   <body>
-    <div id="root">React APP</div>
-    <!-- 
-    <script
-      src="https://unpkg.com/react/umd/react.development.js"
-      crossorigin
-    ></script>
-    <script
-      src="https://unpkg.com/react-dom/umd/react-dom.development.js"
-      crossorigin
-    ></script> -->
+    <div id="root">
+      <!-- using html -->
+      <!-- <h1>Hello World</h1> -->
+    </div>
+
+    <!-- if another same prop or attribute is passed as in reactElement (title), the htmlElement will be override by reactElement! - CHECK IN NETWORK CONSOLE WITH TIME INTERVAL SET TO CHECK THE RENDERING AND OVERRIDING -->
+    <!-- - browser loads website
+        - browser sees the html and css and renders it
+        - browser sees the javascript and executes it
+        - javascript modifies the dom
+        - browser sees the modified dom and renders it
+        - browser sees the javascript and executes it
+        - javascript modifies the dom
+         -->
+    <!-- <h1 id="title">
+            Namaste JAVASCRIPT
+        </h1> -->
+
+    <!-- using script -->
+    <!-- <script>
+        const heading = document.createElement("h1");
+        heading.innerHTML = "Hello World!";
+
+        const root = document.getElementById("root");
+        root.appendChild(heading)
+    </script> -->
+
+    <!-- using CDN -->
+    <!-- <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> -->
+
     <script type="module" src="./App.js"></script>
   </body>
 </html>
