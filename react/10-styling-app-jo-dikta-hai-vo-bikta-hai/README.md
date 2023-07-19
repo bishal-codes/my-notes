@@ -130,243 +130,174 @@ module.exports = {
 
 ## CSS in React
 
-### Styling React components with inline styling
+## 1. External CSS File
 
-- written as attributes and are passed to the element.
-- First, there are two curly brackets. What we are rendering is written in JSX, and for pure JavaScript expressions to be used in JSX, they have to be included in curly brackets. The first curly bracket injects JavaScript into JSX. The inner curly brackets create an object literal. The styles are passed as object literals to the element.
-- The next thing to note is that the properties are separated by a comma. This is because what we are passing is an object. Because it is a JavaScript attribute, the attributes are written in camelCase and not separated by a dash.
+The first way is to use an external CSS file. Suppose we have a `div` element:
 
-```js
-const AddTodo = () => {
-  //...
-  return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <h2 style={{ padding: "10px 20px", textAlign: "center", color: "white" }}>
-        TODO
-      </h2>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <label
-          style={{ padding: "10px 20px", textAlign: "center" }}
-          htmlFor="new-todo"
-        >
-          What needs to be done?
-        </label>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <form onSubmit={handleSubmit}>
-          <input onChange={onChange} value={task} ref={inputRef} />
-          <button>Add </button>
-        </form>
-      </div>
-      {message && (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <h4 style={{ color: "red" }}>{message}</h4>
-        </div>
-      )}
-    </div>
-  );
-};
-export default AddTodo;
+```jsx
+<div className="name">Arvind Pandit</div>
 ```
 
-**💡** JSX is a preprocessor step that adds XML syntax to JavaScript. You can definitely use React without JSX, but JSX makes React a lot more elegant. Just like XML, JSX tags have a tag name, attributes, and children.
+We can create a CSS file, let's say `index.css`, and style the element there:
 
-### Creating a style object variable
-
-- create a style object variable the same way we create a JavaScript object. This object is then passed to the style attribute of the element we want to style.
-
-```js
-const AddTodo = () => {
-  return (
-    <div style={Container}>
-      <h2 style={Header}>TODO</h2>
-      <div style={LabelContainer}>
-        <label style={Label} htmlFor="new-todo">
-          What needs to be done?
-        </label>
-      </div>
-      <div style={FormContainer}>
-        <form onSubmit={handleSubmit}>
-          <input onChange={onChange} value={task} ref={inputRef} />
-          <button>Add </button>
-        </form>
-      </div>
-      {message && (
-        <div style={Message}>
-          <h4 style={{ color: "red" }}>{message}</h4>
-        </div>
-      )}
-    </div>
-  );
-};
-
-const Container = { display: "flex", flexDirection: "column" };
-const Header = { padding: "10px 20px", textAlign: "center", color: "white" };
-const LabelContainer = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-};
-const Label = { padding: "10px 20px", textAlign: "center" };
-const FormContainer = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-};
-const ErrorMessage = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-};
-```
-
-**💡** We did not have to use double curly brackets in the element because these variables are objects themselves.
-
-- If you look at the object properties, the camelCases will be converted to dash-separated CSS attributes during compilation. For instance, this:
-
-```js
-backgroundColor: "#44014C",
-minHeight: "200px",
-boxSizing: "border-box"
-In plain CSS, these will be written as:
-background-color: #44014C;
-min-height: 200px;
-box-sizing: border-box;
-```
-
-### Sharing styles across many React components
-
-```js
-// styles.js
-const Container = { display: "flex", flexDirection: "column" };
-const Header = { padding: "10px 20px", textAlign: "center", color: "white" };
-const LabelContainer = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-};
-const Label = { padding: "10px 20px", textAlign: "center" };
-const FormContainer = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-};
-const ErrorMessage = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-};
-
-export const styles = {
-  Container: Container,
-  Header: Header,
-  LabelContainer: LabelContainer,
-  Label: Label,
-  ErrorMessage: ErrorMessage,
-  FormContainer: FormContainer,
-};
-
-export const styles = {
-  Container: Container,
-  Header: Header,
-  LabelContainer: LabelContainer,
-  Label: Label,
-  ErrorMessage: ErrorMessage,
-  FormContainer: FormContainer,
-};
-
-/** AddTodo.js file **/
-
-// Import the styles
-import { styles } from "./styles";
-
-const AddTodo = () => {
-  //....
-  return (
-    <div style={styles.Container}>
-      <h2 style={styles.Header}>TODO</h2>
-      <div style={styles.LabelContainer}>
-        <label style={styles.Label} htmlFor="new-todo">
-          What needs to be done?
-        </label>
-      </div>
-      <div style={styles.FormContainer}>
-        <form onSubmit={handleSubmit}>
-          <input onChange={onChange} value={task} ref={inputRef} />
-          <button>Add </button>
-        </form>
-      </div>
-      {message && (
-        <div style={styles.ErrorMessage}>
-          <h4 style={{ color: "red" }}>{message}</h4>
-        </div>
-      )}
-    </div>
-  );
-};
-```
-
-### Using styled-components
-
-With styled-components, we can write actual CSS in our JavaScript file. This means you can use all the features of CSS — like media queries, pseudo-selectors, nesting, and more — in JavaScript.
-
-```bash
-$ npm install --save styled-components
-```
-
-```js
-/** AddTodo.js file **/
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-const Header = styled.div`
-  padding: 10px 20px;
-  text-align: center;
-  color: white;
-`;
-
-function AddTodo() {
-  //...
-
-  return (
-    <Container>
-      <Header>TODO</Header>
-      <LabelContainer>
-        <Label htmlFor="new-todo">What needs to be done?</Label>
-      </LabelContainer>
-      <FormContainer>
-        <form onSubmit={handleSubmit}>
-          <input onChange={onChange} value={task} ref={inputRef} />
-          <button>Add </button>
-        </form>
-      </FormContainer>
-      {message && (
-        <ErrorContainer>
-          <ErrorMessage>{message}</ErrorMessage>
-        </ErrorContainer>
-      )}
-    </Container>
-  );
+```css
+.name {
+  font-weight: bold;
+  background-color: aqua;
 }
 ```
 
-### Styling with Tailwind CSS
+This will make the text "Arvind Pandit" bold and give it an aqua background color.
+
+**Pros:**
+
+- Separation of concerns: CSS styles are kept separate from the component code.
+- Reusability: Styles defined in an external CSS file can be shared across multiple components.
+- Familiarity: Developers with experience in traditional web development may find it more comfortable and familiar.
+
+**Cons:**
+
+- Tight coupling: Changes in the component structure might require corresponding changes in the CSS file.
+- Global scope: CSS styles defined externally have a global scope, which can lead to naming collisions or unintended style overrides.
+- Increased network requests: An additional HTTP request is needed to fetch the CSS file.
+
+## 2. Inline CSS
+
+The second way is to use inline CSS. We can apply styles directly within the component using the `style` attribute:
+
+```jsx
+<div style={{ backgroundColor: "aqua", fontWeight: "bold" }}>Arvind Pandit</div>
+```
+
+Alternatively, we can define the styles as an object and use it within the `style` attribute:
+
+```jsx
+const nameStyle = {
+  backgroundColor: "aqua",
+  fontWeight: "bold",
+};
+
+<div style={nameStyle}>Arvind Pandit</div>;
+```
+
+Both approaches achieve the same result but offer different ways of writing CSS.
+
+**Pros:**
+
+- Component-centric styles: Styles are directly associated with the component they are applied to, making it easier to understand and manage.
+- Dynamic styles: Inline styles can be easily modified based on component props or state.
+- Scoped styles: Inline styles are encapsulated within the component and do not affect other elements.
+
+**Cons:**
+
+- Readability and maintainability: Inline styles can become lengthy and clutter the component code, making it harder to read and maintain.
+- Limited CSS features: Inline styles have limitations compared to external CSS, such as lack of media queries and pseudo-selectors.
+- Style duplication: When multiple components require the same styles, duplication of inline styles can occur.
+
+## 3. SCSS/SASS
+
+SCSS (Sassy CSS) and SASS (Syntactically Awesome StyleSheets) are extensions of CSS that provide additional features and make CSS more powerful and maintainable. SCSS/SASS allow nesting, variables, mixins, and more. They need to be compiled to regular CSS before using them in React applications.
+
+**Pros:**
+
+- Modularity and reusability: SCSS/SASS supports nested selectors, variables, mixins, and functions, enabling modular and reusable styles.
+- Improved readability: SCSS/SASS syntax is more concise and expressive than traditional CSS, making it easier to read and understand.
+- Preprocessing capabilities: SCSS/SASS can leverage logic and calculations to generate styles dynamically.
+
+**Cons:**
+
+- Compilation step: SCSS/SASS files need to be compiled into regular CSS before they can be used, requiring additional build tools or configuration.
+- Learning curve: Developers unfamiliar with SCSS/SASS might require some time to learn and adapt to the syntax and features.
+- Tooling dependencies: Setting up a build process and integrating SCSS/SASS into a project requires additional tooling and dependencies.
+
+## 4. Libraries (e.g., Material UI, Chakra UI, Ant UI)
+
+Using UI libraries like Material UI, Chakra UI, or Ant UI can significantly speed up development and provide pre-built components and styles. Advantages of using libraries include:
+
+- Ready-to-use components with consistent styling
+- Increased productivity and faster development
+- Established design systems and best practices
+- Community support and regular updates
+
+However, there are some disadvantages to consider:
+
+- Increased bundle size due to additional dependencies
+- Customization limitations that may require overriding library styles
+- Learning curve associated with library-specific concepts and APIs
+
+## 5. Styled Components
+
+Styled Components is a popular library that allows you to write CSS-in-JS, encapsulating styles within React components. It enables you to create reusable styled components with dynamic styling based on props or state. Styled Components offer a seamless integration of CSS and React components.
+
+**Pros:**
+
+- Component-based styling: Styles are defined directly within the component, resulting in a more intuitive and self-contained approach.
+- Dynamic styling: Styled Components allow dynamic styling based on component props or state, enabling flexible and interactive UIs.
+- Easy integration: Styled Components seamlessly integrate with React components, enhancing code readability and maintainability.
+
+**Cons:**
+
+- Increased complexity: While Styled Components simplify styling within components, they might introduce additional complexity, especially for larger projects.
+- Performance impact: Styling logic within the component can potentially impact performance, as styles are re-evaluated whenever the component renders.
+- Learning curve: Developers new to Styled Components might require some time to understand the library's APIs and best practices.
+
+## 6. Framework - Tailwind CSS
+
+Today, we will focus on Tailwind CSS, a utility-first CSS framework. Some advantages of using Tailwind CSS include:
+
+- Rapid development with pre-defined utility classes
+- Highly customizable design system
+- Consistent styling across the application
+- Excellent documentation and active community support
+
+However, there are a few disadvantages to consider:
+
+- Large class names can clutter HTML markup
+- Steeper learning curve compared to traditional CSS frameworks
+- Limited control over individual styles and specific component variations
+
+To use Tailwind CSS in your React app, you can either include its CDN link or install it as a package. Here's how to get started:
+
+1. Install Tailwind CSS and its peer dependencies via npm:
+
+```bash
+npm install -D tailwindcss postcss
+```
+
+2. Run the init command to generate `tailwind.config.js`:
+
+```bash
+npx tailwindcss init
+```
+
+3. Configure PostCSS by creating a `.postcssrc` file in your project root and enabling the Tailwind
+
+CSS plugin:
+
+```json
+{
+  "plugins": {
+    "tailwindcss": {}
+  }
+}
+```
+
+4. Add the paths to your template files in `tailwind.config.js`:
+
+```javascript
+module.exports = {
+  content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+
+5. Add the Tailwind directives to your CSS file (e.g., `./src/index.css`):
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
