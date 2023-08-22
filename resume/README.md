@@ -1,3 +1,5 @@
+## Tailoring Resume
+
 1. whom do you resume make resume for:
 
 - Bots, ATS, Machines: ATS friendly
@@ -6,8 +8,11 @@
 
 2. How to make ATS friendly resume?
 
-- keywords
+- ats hacking
+- keywords - technical + soft (job description skills)
 - proper headings
+- demonstration > claim 
+- spelling, space errors
 
 3. What Recruiters select resumes?
 
@@ -85,3 +90,10 @@
        - start describing high level details about you and project
          - if experienced, company ---> team ---> project
          - if freshers,
+
+9. more to add
+  - employee letter + cover letter
+  
+
+
+
