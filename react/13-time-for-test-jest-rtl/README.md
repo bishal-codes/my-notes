@@ -67,7 +67,7 @@
 - a replacement for Enzyme.
 - Vitest is aiming to be a drop-in replacement for Jest in Vite (which would require a separate pipeline).
 
-- [Setting up RTL in vite react project](https://www.linkedin.com/pulse/setting-up-rtl-vite-react-project-william-ku/) or [here](https://zaferayan.medium.com/how-to-setup-jest-and-react-testing-library-in-vite-project-2600f2d04bdds)
+- [Setting up RTL in vite react project](https://www.linkedin.com/pulse/setting-up-rtl-vite-react-project-william-ku/) or [here](https://zaferayan.medium.com/how-to-setup-jest-and-react-testing-library-in-vite-project-2600f2d04bdd)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
 - [RTL Queries API](https://testing-library.com/docs/queries/about)
 - [Query Cheatsheet](https://testing-library.com/docs/dom-testing-library/cheatsheet/#queries)

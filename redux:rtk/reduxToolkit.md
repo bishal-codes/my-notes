@@ -10,11 +10,15 @@ Redux Toolkit is a package that contains a set of tools to help you write Redux 
 
 ## 2. Why use Redux Toolkit?
 
+`Redux Toolkit simplifies Redux logic by abstracting setup, handling common use cases, and providing useful utilities.`
+
 Redux Toolkit is intended to be the standard way to write Redux logic. It was originally created to help address three common concerns about Redux:
 
 - "Configuring a Redux store is too complicated"
 - "I have to add a lot of packages to get Redux to do anything useful"
 - "Redux requires too much boilerplate code"
+
+`Redux Toolkit streamlines Redux logic, addressing concerns about complex configuration, package overload, and boilerplate code. It also offers a powerful data fetching feature called "RTK Query". RTK Query incorporates powerful data fetching and caching, eliminating the need for manual data fetching code.`
 
 ## 3. What is the alternative to Redux Toolkit?
 
@@ -26,6 +30,7 @@ The alternative to Redux Toolkit is to write your own Redux logic. This is fine,
 
 ```bash
 npm install @reduxjs/toolkit
+npm install react-redux
 ```
 
 ### 4.2. Usage
@@ -82,4 +87,19 @@ const store = configureStore({
 
   - `actionTypes`: an object with the generated action types
 
-### 5.3. createAsyncThunk
+
+## Included APIs in Redux Toolkit:
+
+- `configureStore()`: Simplified Redux store configuration with defaults, middleware, and DevTools support.
+- `createReducer()`: Replaces switch statements for action types with action type-to-case reducer lookup.
+- `createAction()`: Generates action creator functions with a defined type.
+- `createSlice()`: Generates slice reducers, action creators, and action types from reducers and initial state.
+- `createAsyncThunk()`: Generates thunks dispatching pending/fulfilled/rejected action types based on promises.
+- `createEntityAdapter()`: Generates reducers and selectors for normalized data management.
+- `createSelector()`: Reselect utility for efficient state selection.
+
+## RTK Query:
+
+- `Purpose`: RTK Query simplifies data fetching and caching, eliminating manual data fetching and caching logic.
+- `Usage`: Define endpoints to retrieve data, configure fetching and transformation.
+- `Included APIs`: createApi(), fetchBaseQuery(), <ApiProvider />, setupListeners().
