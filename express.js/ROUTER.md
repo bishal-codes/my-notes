@@ -40,3 +40,74 @@ export default router;
 
 6. `Export the Router`: Once all the routes and middleware are defined, export the router so that it can be used in the main application file.
 
+
+## Middlewares
+
+- Middlewares are functions that are executed in the middle of the request and response cycle.
+- Middlewares are used to modify the request and response objects.
+- Middlewares are used to execute some code before the request is processed by the route handler.
+- Middlewares are used to execute some code after the request is processed by the route handler.
+- Middlewares are used to execute some code if the request is not processed by the route handler.
+
+1. app.use();
+
+- app.use() is used to register a middleware function that will be executed for every request to a specific route and HTTP method.
+
+2. express.json();
+
+- express.json() is a built-in middleware function in Express. It parses incoming requests with JSON payloads and is based on body-parser.
+
+## router.get("/:id")
+
+- we can use `router.get("/:id")` to get the id from the url and/or `expecting something from db` and use it in the query to fetch the data from the database.
+- after semicolon is variable and whatever you send data will be available in variable
+- we receive this data in express through `req.params`.
+
+## router.get("/:id?")
+
+- we can use `router.get("/:id?")` to get the id from the url or `expecting something from db` and use it in the query to fetch the data from the database.
+- after semicolon is variable and whatever you send data will be available in variable
+- we receive this data in express through `req.params`.
+- we can use `?` to make the id optional.
+
+### req.body
+
+- req.body is a property on the request object that contains the body of the request.
+
+### Difference between PUT and PATCH method
+
+PUT method is used to update the whole resource. PATCH method is used to update the partial resource.
+If you have a lot of data stored in your db, and if you are updating partial or few part of the data then we use patch method. If updating entire information based on given id, we use put method.
+
+### POST method
+
+POST method is used to create a new resource.
+
+### GET method
+
+GET method is used to get the resource.
+
+### DELETE method
+
+DELETE method is used to delete the resource.
+
+### throw new Error
+
+throw new Error is used to throw an error. It is used to stop the execution of the code.
+
+```js
+throw new Error("Error message");
+```
+
+### try catch
+
+try catch is used to catch the error. It is used to handle the error.
+
+```js
+try {
+  // code
+} catch (error) {
+  // error handling
+}
+```
+

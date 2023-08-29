@@ -10,10 +10,14 @@ Node.js is a JavaScript runtime environment that allows you to run JavaScript co
 
 Q. What are the features of Node js?
 
+- written in JavaScript and C++
 - Asynchronous and Event Driven
 - Very Fast
 - Single Threaded but Highly Scalable
-- No Buffering
+- No Buffering, non-blocking
+- event driven architecture
+- allows for efficient handling of concurrent connections, making it perfect for real time applications
+- from handling server-side logic to creating APIs 
 - License
 
 Q. What are the advantages of Node js?
@@ -29,6 +33,20 @@ Q. What are the disadvantages of Node js?
 - Node.js is not suitable for CPU-intensive applications!
 - Node.js is not suitable for data-intensive real-time applications!
 - Node.js is not suitable for complex applications!
+
+Q. What is V8?
+
+- fastest JavaScript Engine that converts JavaScript Code into the machine code.
+
+Q. What is Event Loop?
+
+- heart of NodeJS.
+- executes all the callback tasks in a single thread and moves heavy ones into thread pool.
+
+Q. What is Thread Pool?
+
+- executes task that were moved by Event Loop.
+- doesn't block abd easier tasks are continuosly performed.
 
 Q. What is the difference between Node js and Express js?
 
