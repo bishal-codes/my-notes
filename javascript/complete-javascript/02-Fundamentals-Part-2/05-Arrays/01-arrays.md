@@ -112,7 +112,7 @@ Arrays are _ordered_, meaning that the elements in them will always appear in th
 - `join(delimiter)`: concatenate the elements into a string
 - [`splice()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
   - Add or remove elements from anywhere in an array
-  - Return an arrary of removed elements
+  - Return an array of removed elements
   - Parameters
     - index
     - number of elements to remove
