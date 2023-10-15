@@ -16,7 +16,7 @@ JWT is a string that contains three parts separated by dots (.), which are:
 
 ### Header
 
-The header typically consists of two parts: the type of the token, which is JWT, and the signing algorithm being used, such as HMAC SHA256 or RSA.
+The header typically consists of two parts: the `type` of the token, which is JWT, and the `signing algorithm` being used, such as HMAC SHA256 or RSA.
 
 For example:
 
@@ -31,7 +31,7 @@ Then, this JSON is Base64Url encoded to form the first part of the JWT.
 
 ### Payload
 
-The second part of the token is the payload, which contains the claims. Claims are statements about an entity (typically, the user) and additional data. There are three types of claims: reserved, public, and private claims.
+The second part of the token is the `payload`, which contains the claims. Claims are statements about an entity (typically, the user) and additional data. There are three types of claims: reserved, public, and private claims.
 
 * Reserved claims: These are a set of predefined claims which are not mandatory but recommended, to provide a set of useful, interoperable claims. Some of them are: `iss`, `exp`, `sub`, `aud`, and `iat`.
 
