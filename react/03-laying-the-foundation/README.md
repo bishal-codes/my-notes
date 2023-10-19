@@ -10,13 +10,14 @@
 - javascript is mother of all these libraries
 
   - starting the app: npx parcel index.html
-    - development builds
+    - development builds0.
   - create scripts for convenience in package.json
     - industry standard convention to use npm scripts to start or build projects
     - to run scripts: npm run start or npm start
   - dom elements and react elements
     ```js
     // React.createElement = Object = (render) = HTMLElement
+
     // core way of creating react element
     const heading = React.createElement(
       "h1",

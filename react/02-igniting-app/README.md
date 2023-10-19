@@ -1,19 +1,15 @@
-Today Learning about how we can ignite our app and make app scalable and production ready, and what actually inside npx-create-react-app:
-and when going to system design interview:
+**how we can ignite our app and make app scalable and production ready, and what actually inside `npx-create-react-app`**
 
 - what makes your react app faster?
 - what makes your react app performance?
 - what makes your developer performance better?
-  – can i have multiple root.render() in app
-  – can i have multiple reactDOM.createRoot() in app
-  – can i have multiple id root in app
+  – can i have multiple root.render() in app?
+  – can i have multiple reactDOM.createRoot() in app?
+  – can i have multiple id root in app?
 
 - pushing the code into remote repo
   - whatever can be regenerated, don't push into git
 - scaling and optimizing app before production ready
-
-  - many online shows npx-create-react-app, but go dive deep what is there behind this npx-create-react-app!
-
     - can react itself build fast production ready app?: no
     - is react making the app faster?: no, there are a lot of other packages, libraries, code to make production ready
 
@@ -309,11 +305,13 @@ npm install -S is used to install a package and save it as a dependency in packa
 
 ## Read about caret and tilde
 
-1. What is caret(^)?
+`Major.Minor.Patch` ---> 1.2.3
+
+1. What is caret(^)? - used for automatically updating the `minor` updates along with patch updates. 
 
 The caret (^) is used to match the most recent major version (the middle number). For example, ^1.2.3 will match all 1.x.x versions but will hold off on 2.0.0.
 
-2. What is tilde(~)?
+2. What is tilde(~)? - matches the most recent `patch` version.
 
 The tilde (~) is used to match the most recent minor version (the last number). For example, ~1.2.3 will match all 1.2.x versions but will hold off on 1.3.0.
 

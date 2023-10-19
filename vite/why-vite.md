@@ -75,3 +75,60 @@ Traditional bundlers often `rebuild entire bundles when a file is edited, causin
     - Customize with CLI options like `--port`.
 
 #### [Table of contents](#table-of-contents)
+
+NPM Dependency Resolving and Pre-Bundling:
+
+Vite pre-bundles modules to improve page loading speed and converts CommonJS/UMD modules to ESM.
+Rewrites imports to valid URLs for proper browser import.
+Example:
+
+javascript
+Copy code
+import { someMethod } from 'my-dep'
+Dependencies are Strongly Cached:
+
+Vite caches dependency requests via HTTP headers.
+Allows local editing/debugging of dependencies.
+Hot Module Replacement (HMR):
+
+Enables instant, precise updates without page reload.
+Supported by Vue, React, and other frameworks.
+Example:
+When a module changes, the updated module is swapped in without a full page reload.
+
+TypeScript Support:
+
+Vite supports importing .ts files out of the box.
+Transpilation is performed using esbuild for speed.
+Example:
+
+javascript
+Copy code
+import { someFunction } from './my-module.ts'
+CSS Handling:
+
+Vite handles CSS files, supporting imports and inlining.
+Generates separate CSS files for async chunks.
+Example:
+
+javascript
+Copy code
+import './styles.css'
+Web Workers Support:
+
+Easily import web worker scripts using constructors or query suffixes.
+Allows for inline or URL-based worker loading.
+Example:
+
+javascript
+Copy code
+import MyWorker from './worker.js?worker'
+const worker = new MyWorker()
+Build Optimizations:
+
+Automatically optimizes CSS code splitting.
+Generates preload directives and optimizes async chunk loading.
+Example:
+Helps reduce network roundtrips and improves application loading speed.
+
+
