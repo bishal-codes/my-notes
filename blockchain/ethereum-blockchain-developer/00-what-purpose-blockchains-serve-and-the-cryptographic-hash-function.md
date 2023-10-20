@@ -18,7 +18,7 @@ Q. Difference between centralized, decentralized and distributed systems?
 1. Purpose of Blockchain
 
 - to have a network of computers agree upon common state of data. Generally the term `consensus` is used to describe a network coming to an agreement on the state of the data.
-- Any person or organization should be able to participate in this process. 
+- Any person or organization should be able to participate in this process.
 - No person or organization should be able to control this process.
 - with a blockchain, we can decentralize where code can be run and also agree on the output of the code.
   - there is no single owner of the code execution
@@ -115,15 +115,16 @@ Blockchain was invented to create a trustless system, where no one can cheat or 
 ### Crypto
 
 - way before cryptocurrency, crypto was used for encryption.
-    - Cryptographic hashes
-    - Public Key Cryptography
-    - Digital signatures
+  - Cryptographic hashes
+  - Public Key Cryptography
+  - Digital signatures
 
 1. Hash Function
-  - hash function is a function that maps data to a fixed-length value
-  - give me a value (input) that can be big or small, hash function will output the fixed length value
-    - Input can be of any data type: `String`, `Number`, `Boolean`, `Array`, `Object`, `image`, `video`
-        - example:
+
+- hash function is a function that maps data to a fixed-length value
+- give me a value (input) that can be big or small, hash function will output the fixed length value
+  - Input can be of any data type: `String`, `Number`, `Boolean`, `Array`, `Object`, `image`, `video`
+    - example:
 
 ```js
 const crypto = require("crypto");

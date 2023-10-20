@@ -116,7 +116,7 @@ Today Learned about
 
 - key props
   - each of the child inside a parent being rendered should be uniquely represented by giving id (best practice)
-  - react itself donot reccomend using index in key, but can use index if not have umique key
+  - react itself do not reccomend using index in key, but can use index if not have umique key
   - not using keys is not acceptable,
   - whenever looping anything, should give key to children
 
