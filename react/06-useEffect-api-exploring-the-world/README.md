@@ -77,6 +77,14 @@
 
    - rendering on the basis of conditon
 
+     ```js
+     if (isLoggedIn) {
+       return <UserGreeting />;
+     } else {
+       return <GuestGreeting />;
+     }
+     ```
+
 10. why do we need state variable? how this works?
 
 - when something is changed in component like state variable, react will re-render the component and update all the updated value in component
@@ -180,6 +188,45 @@
       - to do this, we use onChange handler in input box
   - when type sth in input box, changes the local state variable and hence react re-renders the component
   - first time filter will update the state, and on another filter, state will only have the filtered state and if the search doesn't exist, there is nothing to display
+
+```js
+
+const [search, setSearch] = useState("");
+
+const handleSearch = (e) => {
+  setSearch(e.target.value);
+}
+
+const filteredData = data.filter((item) => {
+  return Object.keys(item).some((key) => {
+    return item[key].toLowerCase().includes(search.toLowerCase());
+  })
+})
+
+return (
+  <div>
+    {/*
+    * <input type="text" value={search} />
+    * <button onClick={() => console.log(search)}>Search</button>
+    * in this code, search will not be printed, because we didn't bind the search state variable with input box
+    * or the search is empty in the local state variable and it is not binded with input box
+    * so to update the ui, we need to bind the search state variable with input box by using onChange handler
+    */}
+
+    <input type="text" value={search} onChange={handleSearch} />
+    <button onClick={() =>
+    const filteredData = data.filter((item) => {
+      return Object.keys(item).some((key) => {
+        return item[key].toLowerCase().includes(search.toLowerCase());
+      })
+    })
+    }>Search</button>
+    <div>
+      {filteredData.map((item) => (
+        <div>{item.name}</div>
+      ))}
+)
+```
 
 13. filter(), map(), includes(), toLowerCase()
 
