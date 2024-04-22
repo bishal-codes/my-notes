@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clickjacking iFrame</title>
+  </head>
+  <body>
+    <h1>Child iFrame - clickjacking example</h1>
+    <p>
+      This is an iframe that has been set to be vulnerable to clickjacking
+      attacks.
+    </p>
+
+    <button
+      style="background-color: red"
+      onclick="alert('Click iframe button')"
+    >
+      Pay Now
+    </button>
+
+    <script>
+      if (top != self) {
+        top.location = self.location;
+      }
+    </script>
+  </body>
+</html>

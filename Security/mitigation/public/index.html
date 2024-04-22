@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XSS Mitigation</title>
+
+    <!-- we don't want to give the unsecure site access to our site, since the site is executing, it can bring a lot of security vulnerabilities-->
+    <!-- we don't want any third party or external site inject malicious script to our site -->
+    <!-- we can set csp headers to prevent from these unsecure harmful vulnerabilities -->
+    <script src="http://unsecure.com/abc.js"></script>
+    <!-- inline script -->
+    <script>
+      console.log("My non-trusted Code");
+    </script>
+
+    <!-- to differentiate my own script from external site inject malicious script, tell the server please execute only those thing which has the valid nonce -->
+    <script nonce="randomKey">
+      console.log("My trusted code");
+    </script>
+  </head>
+  <body>
+    <h1>Page for CORS demo</h1>
+    <img
+      src="https://media.licdn.com/dms/image/D5603AQFGQeLoW6bIZw/profile-displayphoto-shrink_100_100/0/1685717036851?e=1710374400&v=beta&t=HK2dXXgv7AI4d0US-HK43D7vw2EROrIpYwlD9UcpxVk"
+      alt="image"
+    />
+  </body>
+</html>

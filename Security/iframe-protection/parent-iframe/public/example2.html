@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Theft via JavaScript</title>
+  </head>
+  <body>
+    <h1>Data Theft via JavaScript</h1>
+
+    <!-- If we want to allow the iframe to be displayed but don't want whatever the script to be executed, then sandbox='allow-same-origin' will block but passing 'allow-scripts allow-modals' will allow the script to be executed-->
+
+    <iframe
+      src="http://localhost:8000/iframe-website2"
+      frameborder="0"
+      sandbox="allow-same-origin allow-scripts allow-modals"
+    ></iframe>
+
+    <script>
+      function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+          var date = new Date();
+          date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+          expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + value + expires + "; path=/";
+      }
+      setCookie("parentCookie", "secret", 1);
+    </script>
+  </body>
+</html>

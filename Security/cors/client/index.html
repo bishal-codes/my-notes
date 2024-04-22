@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch with CORS Example</title>
+  </head>
+  <body>
+    <h1>Fetch with CORS Example</h1>
+    <button onclick="fetchData()">Fetch data</button>
+    <div id="result"></div>
+
+    <script>
+      function fetchData() {
+        fetch(
+          //   "https://www.google.com/search?q=bishalk21&rlz=1C1RXMK_en-GBAU999AU999&oq=bishalk21&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABiABBiiBDIGCAIQRRg8MgYIAxBFGDwyBggEEEUYPDIGCAUQRRhBMgYIBhBFGEEyBggHEEUYQdIBCTUxNDU1ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8",
+          "http://localhost:8000/test",
+          {
+            method: "GET", // or 'PUT'
+          }
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("result").innerText = JSON.stringify(data);
+          })
+          .catch((error) => {
+            console.log("Error:", error);
+          });
+      }
+    </script>
+  </body>
+</html>
