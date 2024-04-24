@@ -45,22 +45,26 @@ Peering by Google/Netflix:
 
 User ------ (local ISP) ------ Google/Netflix Server ------ (local ISP) ------ Regional ISP (encrypts data and sends to user) ---- Global ISP ----- Regional ISP ------ Local ISP ------ User
 
-ISP ----- Server (TCP handshake: how data is sent and received )
-client ------- (SYN: seq no) -------> server
-client <------ (SYN+ACK: seq no, ack no) ------ server
-client ------- (ACK: ack no) -------> server
+| ISP    | -----                                    | Server (TCP handshake: how data is sent and received ) |
+| ------ | ---------------------------------------- | ------------------------------------------------------ |
+| client | ------- (SYN: seq no) ------->           | server                                                 |
+| client | <------ (SYN+ACK: seq no, ack no) ------ | server                                                 |
+| client | ------- (ACK: ack no) ------->           | server                                                 |
 
-User ------ > Server
-Browser <------- (dns lookup) -------> Router -------> ISP -------> DNS LOOKUP
-Browser <------ (`tcp handshake: how data is sent and received`) -------> Server
-Browser <------ (`ssl handshake: in https, secure connection: get certificates/key and encrypt data and send `) ---------> Server
-Browser ------ (http get req: communication between client and server) -------> Server
-Browser <------ (http response: 14KB) ------ Server (server sends the data in chunks: `first pack of data comes in 14KB, 1st load of data or parcel that is user experience and enough for critical rendering`)
-Browser ------ (ACK) ------> Server
-Browser <------ (http response: 28KB) ------ Server
-Browser ------ (ACK) ------> Server
-Browser <------ (http response: 56KB) ------ Server
-Browser ------ (ACK) ------> Server
+<img src="./assets/browser-server.png"  alt="Browser Server Communication"/>
+
+| User    | ------ >                                                                                                           | Server                                                                                                                                                             |
+| ------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Browser | <------- (dns lookup) -------> Router -------> ISP ------->                                                        | DNS LOOKUP                                                                                                                                                         |
+| Browser | <------ (`tcp handshake: how data is sent and received`) ------->                                                  | Server                                                                                                                                                             |
+| Browser | <------ (`ssl handshake: in https, secure connection: get certificates/key and encrypt data and send `) ---------> | Server                                                                                                                                                             |
+| Browser | ------ (http get req: communication between client and server) ------->                                            | Server                                                                                                                                                             |
+| Browser | <------ (http response: 14KB) ------                                                                               | Server (server sends the data in chunks: `first pack of data comes in 14KB, 1st load of data or parcel that is user experience and enough for critical rendering`) |
+| Browser | ------ (ACK) ------>                                                                                               | Server                                                                                                                                                             |
+| Browser | <------ (http response: 28KB) ------                                                                               | Server                                                                                                                                                             |
+| Browser | ------ (ACK) ------>                                                                                               | Server                                                                                                                                                             |
+| Browser | <------ (http response: 56KB) ------                                                                               | Server                                                                                                                                                             |
+| Browser | ------ (ACK) ------>                                                                                               | Server                                                                                                                                                             |
 
 | Loading                                         | Scripting                                                  | Rendering                                     | Painting                                                                                                            | Compositing                                           |
 | ----------------------------------------------- | ---------------------------------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
