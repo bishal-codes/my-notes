@@ -62,7 +62,35 @@ Browser ------ (ACK) ------> Server
 Browser <------ (http response: 56KB) ------ Server
 Browser ------ (ACK) ------> Server
 
-| Loading                                         | Scripting                                                  | Rendering                                     | Painting                                    | Compositing                                                         |
-| ----------------------------------------------- | ---------------------------------------------------------- | --------------------------------------------- | ------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------------------- |
-| Req page --- (parsing) ---> Build DOM           | DOM ---- (style calculation) ----> Parse CSS & build CSSOM | execute JS                                    | merge DOM & CSSOM into Render tree (layout) | Build and paint the render tree                                     | turn the layers information into pixels on the screen |
-| req page ---> load html --- response <----- DOM | response --- (render and parser blocking) --- GET CSS & JS | RESPONSE --- (render blocking) --- EXECUTE JS | PIXELS --- (trigger reflow) --- RENDER TREE | pixels --- (trigger repaint: change any visible elements) --- PAINT | RESPONSE --- (render blocking) --- COMPOSITE          |
+| Loading                                         | Scripting                                                  | Rendering                                     | Painting                                                                                                            | Compositing                                  |
+| ----------------------------------------------- | ---------------------------------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | ----------------------------------------------------- |
+| Req page --- (parsing) ---> Build DOM           | DOM ---- (style calculation) ----> Parse CSS & build CSSOM | execute JS                                    | merge DOM & CSSOM into Render tree (layout)                                                                         | Build and paint the render tree              | turn the layers information into pixels on the screen |
+| req page ---> load html --- response <----- DOM | response --- (render and parser blocking) --- GET CSS & JS | RESPONSE --- (render blocking) --- EXECUTE JS | PIXELS --- (trigger reflow) --- RENDER TREE and pixels --- (trigger repaint: change any visible elements) --- PAINT | RESPONSE --- (render blocking) --- COMPOSITE |
+
+Javascript Execution:
+
+load script > parse script (blocks the rendering) > AST (Abstract Syntax Tree) Internalization > Compile > Bytecode Finalization > Execution
+
+1. How web works: https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works
+   <image src="./assets/how web works.png" alt="How Web Works"/>
+
+2. CSS and CSSOM: https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model
+   <image src="./assets/css and cssom.png" alt="CSS and CSSOM"/>
+
+3. Parsing HTML: https://developer.mozilla.org/en-US/docs/Web/HTML/Parser
+   <image src="./assets/parse-html.png" alt="Parsing HTML"/>
+
+4. Fetch external resources (CSS, JS): https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
+   <image src="./assets/fetch-css-js.png" alt="Fetch External Resources"/>
+
+5. Parse the CSS and Build the CSSOM: https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model
+   <image src="./assets/css-parse-and-build-cssom.png" alt="Parse CSS and Build CSSOM"/>
+
+6. Execute JS: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
+   <image src="./assets/execute-js.png" alt="Execute JS"/>
+
+7. Merge DOM and CSSOM into Render Tree: https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction
+   <image src="./assets/merge-dom-cssom-render-tree.png" alt="Merge DOM and CSSOM into Render Tree"/>
+
+8. Build and Paint the Render Tree: https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction
+   <image src="./assets/calculate-layout-paint.png" alt="Build and Paint the Render Tree"/>
