@@ -62,10 +62,10 @@ Browser ------ (ACK) ------> Server
 Browser <------ (http response: 56KB) ------ Server
 Browser ------ (ACK) ------> Server
 
-| Loading                                         | Scripting                                                  | Rendering                                     | Painting                                                                                                            | Compositing                                  |
-| ----------------------------------------------- | ---------------------------------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | ----------------------------------------------------- |
-| Req page --- (parsing) ---> Build DOM           | DOM ---- (style calculation) ----> Parse CSS & build CSSOM | execute JS                                    | merge DOM & CSSOM into Render tree (layout)                                                                         | Build and paint the render tree              | turn the layers information into pixels on the screen |
-| req page ---> load html --- response <----- DOM | response --- (render and parser blocking) --- GET CSS & JS | RESPONSE --- (render blocking) --- EXECUTE JS | PIXELS --- (trigger reflow) --- RENDER TREE and pixels --- (trigger repaint: change any visible elements) --- PAINT | RESPONSE --- (render blocking) --- COMPOSITE |
+| Loading                                         | Scripting                                                  | Rendering                                     | Painting                                                                                                            | Compositing                                           |
+| ----------------------------------------------- | ---------------------------------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| Req page --- (parsing) ---> Build DOM           | DOM ---- (style calculation) ----> Parse CSS & build CSSOM | execute JS                                    | merge DOM & CSSOM into Render tree (layout) and Build and paint the render tree                                     | turn the layers information into pixels on the screen |
+| req page ---> load html --- response <----- DOM | response --- (render and parser blocking) --- GET CSS & JS | RESPONSE --- (render blocking) --- EXECUTE JS | PIXELS --- (trigger reflow) --- RENDER TREE and pixels --- (trigger repaint: change any visible elements) --- PAINT | RESPONSE --- (render blocking) --- COMPOSITE          |
 
 Javascript Execution:
 
