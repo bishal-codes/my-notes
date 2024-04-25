@@ -35,7 +35,8 @@ app.all("/", (req, res) => {
 app.post("/todos", (req, res) => {
   const todo = req.body;
   todos.push(todo);
-  res.json({ message: "Todo created successfully" });
+  // res.json({ message: "Todo created successfully" });
+  res.status(201).json({ message: "Todo created successfully" });
 });
 
 // read
@@ -47,17 +48,20 @@ app.get("/todos", (req, res) => {
 app.put("/todos/:id", (req, res) => {
   const id = req.params.id;
   const todo = req.body;
-  const index = todos.findIndex((todo) => todo.id == id);
+  const index = todos.findIndex((todo) => todo.id === id);
 
   if (index !== -1) {
     todos[index] = {
       id: id,
       ...todo,
     };
+    res.json({ message: "Todo updated successfully" });
+  } else {
+    res.status(404).json({ message: "Todo not found" });
   }
 
-  todos[index] = todo;
-  res.json({ message: "Todo updated successfully" });
+  // todos[index] = todo;
+  // res.json({ message: "Todo updated successfully" });
 });
 
 // delete
