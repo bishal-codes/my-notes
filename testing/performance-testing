@@ -1,0 +1,34 @@
+# Performance Testing
+
+## For Frontend application
+
+- page speed (fast loading website): page load time
+- seo (search engine optimization)
+- accessibility (web content accessible to all users)
+- responsive design (works well on different devices)
+- bounce rate
+
+## For Backend application
+
+- response time
+- throughput
+- resource utilization
+- scalability
+- reliability
+- fault tolerance
+- latency
+
+## Performance Testing Tools
+
+- developer console (browser)
+- lighthouse (chrome extension) - audits for performance, seo, accessibility, best practices
+- page speed insights (google)
+- webpagetest.org - tests from various locations around the world
+
+Timings in performance:
+
+- DCL (DOMContentLoaded): HTML is loaded and parsed
+- LCP (Largest Contentful Paint): time taken to render the largest content element
+- FCP (First Contentful Paint): time taken to render the first content element
+- TTI (Time to Interactive): time taken to make the page interactive
+- FP (First Paint): time taken to render the first pixel
