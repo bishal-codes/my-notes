@@ -248,6 +248,12 @@ npx to execute just once.
 npm run test
 ```
 
+to watch test cases
+
+```bash
+npm run test -- --watch-test
+```
+
 8. [install jest-environment-jsdom](https://testing-library.com/docs/react-testing-library/setup#configuring-jest-with-test-utils)
 
 ```bash
