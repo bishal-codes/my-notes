@@ -1,0 +1,22 @@
+# Fixing
+
+- Prioritize the most important issues first (P0 > P1 > P2 > P3)
+- Debugging (source map, session replay, logs, traces, metrics, profiling, breakpoints, console logs, network logs, error messages, stack traces, code comments, documentation, tests)
+  - reproduce the issue
+  - identify the root cause
+  - fix the issue
+  - test the fix
+- Mitiagtion (temporary fix)
+  - rollback
+  - hotfix
+- Prevention (permanent fix)
+  - unit tests
+  - linting
+  - type checking
+  - PR (pull request) reviews
+  - rate limiting
+  - security and performance audits
+  - code changes
+  - configuration changes
+  - infrastructure changes
+  - process changes
