@@ -110,3 +110,23 @@ Link: </styles.css>; rel=preload; as=style
 
 - [mdn Early Hints](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103)
 - [chrome Early Hints](https://developer.chrome.com/docs/web-platform/early-hints)
+
+## HTTP Upgrade Methods (HTTP/2, HTTP/3)
+
+| #                          | HTTP/1.0 | HTTP/1.1                      | HTTP/2                      | HTTP/3                      |
+| -------------------------- | -------- | ----------------------------- | --------------------------- | --------------------------- |
+| Security                   | None     | None                          | TLS 1.2                     | TLS 1.3                     |
+| TLS                        | No       | Optional                      | Optional                    | Required                    |
+| IP Connections per request | 1        | 1                             | Multiplexed                 | Multiplexed                 |
+| multiplexing               | No       | No                            | Yes                         | Yes                         |
+| Header Compression         | None     | None                          | HPACK                       | QPACK                       |
+| Port                       | 80       | 80                            | 443                         | 443                         |
+| Transport                  | TCP      | TCP                           | TCP                         | UDP with QUIC               |
+| Semantics                  | None     | HTTP/1.1 Semantics (RFC 7230) | HTTP/2 Semantics (RFC 7540) | HTTP/3 Semantics (RFC 7540) |
+| Methods                    | None     | GET, POST, HEAD               | GET, POST, HEAD             | GET, POST, HEAD             |
+| Response                   | None     | Multiplexed                   | Multiplexed                 | Multiplexed                 |
+| Flow Control               | None     | None                          | Yes                         | Yes                         |
+| Server Push                | None     | None                          | Yes                         | Yes                         |
+| Prioritization             | None     | None                          | Yes                         | Yes                         |
+| Browsers                   | All      | All                           | Chrome, Firefox, Safari     | Chrome, Firefox             |
+| Streaming                  | No       | No                            | Yes                         | Yes                         |
