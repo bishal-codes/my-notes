@@ -130,3 +130,21 @@ Link: </styles.css>; rel=preload; as=style
 | Prioritization             | None     | None                          | Yes                         | Yes                         |
 | Browsers                   | All      | All                           | Chrome, Firefox, Safari     | Chrome, Firefox             |
 | Streaming                  | No       | No                            | Yes                         | Yes                         |
+
+## Compression
+
+- [`Web dev Brotli`](https://web.dev/articles/codelab-text-compression-brotli) - developed by Google, better compression than gzip
+
+## HTTP Caching
+
+- `Cache-Control` header - `max-age`, `no-cache`, `no-store`, `public`, `private`, `must-revalidate`, `proxy-revalidate`
+- `ETag` header - entity tag, unique identifier for the resource
+- `Last-Modified` header - last modified date of the resource
+- `Expires` header - expiration date of the resource
+- `Vary` header - tells the server to cache different versions of the resource based on the request headers
+
+## Caching Using Service Workers
+
+- service workers are scripts that run in the background and can intercept network requests
+- service workers can cache resources and serve them from the cache
+- service workers can be used to create offline experiences
